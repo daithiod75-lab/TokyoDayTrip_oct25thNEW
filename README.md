@@ -1,0 +1,2 @@
+# TokyoDayTrip_oct25thNEW
+天候の影響による東京都内観光の代替プラン
