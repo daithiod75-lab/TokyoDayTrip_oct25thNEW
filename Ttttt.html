@@ -1,0 +1,392 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tokyo Study Tour Itinerary - Australia-Japan Exchange 2026</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            bottom: 20px;
+            left: 20px;
+            width: 3px;
+            background-color: #e2e8f0;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800 min-h-screen flex flex-col">
+
+    <!-- Header Banner -->
+    <header class="bg-gradient-to-r from-rose-700 via-rose-600 to-indigo-800 text-white shadow-md">
+        <div class="max-w-4xl mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div>
+                <div class="flex items-center space-x-2 text-rose-200 text-xs font-semibold uppercase tracking-wider mb-1">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <span>Australia-Japan Exchange Program 2026</span>
+                </div>
+                <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight">
+                    <span class="lang-en">Tokyo Field Study Schedule</span>
+                    <span class="lang-jp hidden">東京校外学習 スケジュール</span>
+                </h1>
+                <p class="text-xs md:text-sm text-rose-100 mt-1">
+                    <span class="lang-en">Sunday, October 25, 2026 • Optimized Itinerary</span>
+                    <span class="lang-jp hidden">2026年10月25日（日） • 最適化行程表</span>
+                </p>
+            </div>
+            
+            <!-- Language Toggle Button -->
+            <button onclick="toggleLanguage()" class="bg-white/20 hover:bg-white/30 text-white text-xs md:text-sm font-semibold px-4 py-2 rounded-full border border-white/40 transition flex items-center space-x-2 shadow-sm">
+                <i class="fa-solid fa-language text-lg"></i>
+                <span id="lang-btn-text">日本語</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-4xl mx-auto px-4 py-6 flex-grow w-full">
+
+        <!-- Banner Alert & Overview -->
+        <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-xl shadow-sm mb-6">
+            <div class="flex items-start">
+                <div class="flex-shrink-0 text-amber-600 text-xl mt-0.5">
+                    <i class="fa-solid fa-circle-info"></i>
+                </div>
+                <div class="ml-3">
+                    <h3 class="text-sm font-semibold text-amber-800 lang-en">Updated Tour Schedule</h3>
+                    <h3 class="text-sm font-semibold text-amber-800 lang-jp hidden">最新版スケジュール</h3>
+                    <p class="text-xs text-amber-700 mt-1 leading-relaxed lang-en">
+                        Earlier arrival at Tokyo Station (09:31 AM) allows arrival in Asakusa by 10:15 AM. Skytree replaced with a focused 2-hour Asakusa block (12-min Rickshaws + Street Snacks) and extended Shibuya exploration time!
+                    </p>
+                    <p class="text-xs text-amber-700 mt-1 leading-relaxed lang-jp hidden">
+                        東京駅09:31到着に伴い、浅草へ10:15頃到着可能。浅草滞在を2時間（人力車＋自由昼食）に凝縮し、渋谷での自由時間を拡大しました。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Summary Cards -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
+            <div class="bg-white p-3 rounded-xl shadow-sm border border-slate-200 text-center">
+                <i class="fa-solid fa-location-dot text-rose-500 text-lg mb-1"></i>
+                <p class="text-xs font-medium text-slate-500 lang-en">Destinations</p>
+                <p class="text-xs font-medium text-slate-500 lang-jp hidden">訪問先</p>
+                <p class="text-xs md:text-sm font-bold text-slate-800">Asakusa & Shibuya</p>
+            </div>
+            <div class="bg-white p-3 rounded-xl shadow-sm border border-slate-200 text-center">
+                <i class="fa-solid fa-person-pulling-rickshaw text-indigo-500 text-lg mb-1"></i>
+                <p class="text-xs font-medium text-slate-500 lang-en">Asakusa Block</p>
+                <p class="text-xs font-medium text-slate-500 lang-jp hidden">浅草滞在</p>
+                <p class="text-xs md:text-sm font-bold text-slate-800 lang-en">2 Hrs (12m Rickshaw)</p>
+                <p class="text-xs md:text-sm font-bold text-slate-800 lang-jp hidden">2時間（人力車含む）</p>
+            </div>
+            <div class="bg-white p-3 rounded-xl shadow-sm border border-slate-200 text-center">
+                <i class="fa-solid fa-utensils text-emerald-500 text-lg mb-1"></i>
+                <p class="text-xs font-medium text-slate-500 lang-en">Lunch</p>
+                <p class="text-xs font-medium text-slate-500 lang-jp hidden">昼食</p>
+                <p class="text-xs md:text-sm font-bold text-slate-800 lang-en">Street Food / Snacks</p>
+                <p class="text-xs md:text-sm font-bold text-slate-800 lang-jp hidden">食べ歩き・コンビニ</p>
+            </div>
+            <div class="bg-white p-3 rounded-xl shadow-sm border border-slate-200 text-center">
+                <i class="fa-solid fa-train text-amber-500 text-lg mb-1"></i>
+                <p class="text-xs font-medium text-slate-500 lang-en">Return Train</p>
+                <p class="text-xs font-medium text-slate-500 lang-jp hidden">帰路特急</p>
+                <p class="text-xs md:text-sm font-bold text-slate-800">17:53 (Hitachi #23)</p>
+            </div>
+        </div>
+
+        <!-- Suggested Routes from Tokyo Station to Asakusa -->
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-4 md:p-6 mb-8">
+            <h3 class="font-bold text-slate-900 text-base md:text-lg mb-3 flex items-center space-x-2">
+                <i class="fa-solid fa-route text-indigo-600"></i>
+                <span class="lang-en">Tokyo Station → Asakusa Transit Options</span>
+                <span class="lang-jp hidden">東京駅 → 浅草：おすすめ移動ルート</span>
+            </h3>
+            <p class="text-xs md:text-sm text-slate-600 mb-4 lang-en">
+                Arriving at Tokyo Station at <strong>09:31 AM</strong> gives you plenty of buffer. Below are three recommended departure options to reach Asakusa around 10:15 AM.
+            </p>
+            <p class="text-xs md:text-sm text-slate-600 mb-4 lang-jp hidden">
+                東京駅09:31到着後、10:15前後に浅草へ到達するための3つの推奨移動パターンです。
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs md:text-sm">
+                <!-- Option A -->
+                <div class="bg-indigo-50/70 border border-indigo-200 p-3 rounded-xl">
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="font-bold text-indigo-900 lang-en">Option A: Yamanote + Ginza</span>
+                        <span class="font-bold text-indigo-900 lang-jp hidden">パターンA：山手線＋銀座線</span>
+                        <span class="text-xs font-bold px-2 py-0.5 rounded bg-indigo-200 text-indigo-800">09:50 → 10:12</span>
+                    </div>
+                    <p class="text-slate-700 font-medium mb-1 lang-en">JR Yamanote to Kanda Sta → Tokyo Metro Ginza Line (~22 mins)</p>
+                    <p class="text-slate-700 font-medium mb-1 lang-jp hidden">山手線で神田駅 → 銀座線で浅草駅（約22分）</p>
+                    <p class="text-slate-500 text-xs lang-en">Fastest rail route. Short, simple platform transfer at Kanda Station.</p>
+                    <p class="text-slate-500 text-xs lang-jp hidden">最もスムーズな鉄道ルート。神田駅での乗り換えも非常に簡単です。</p>
+                </div>
+
+                <!-- Option B -->
+                <div class="bg-emerald-50/70 border border-emerald-200 p-3 rounded-xl">
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="font-bold text-emerald-900 lang-en">Option B: Walk + Asakusa Line</span>
+                        <span class="font-bold text-emerald-900 lang-jp hidden">パターンB：徒歩＋都営浅草線</span>
+                        <span class="text-xs font-bold px-2 py-0.5 rounded bg-emerald-200 text-emerald-800">09:55 → 10:18</span>
+                    </div>
+                    <p class="text-slate-700 font-medium mb-1 lang-en">Walk to Nihombashi Station → Toei Asakusa Line (~20 mins)</p>
+                    <p class="text-slate-700 font-medium mb-1 lang-jp hidden">日本橋駅まで徒歩 → 都営浅草線で浅草駅（約20分）</p>
+                    <p class="text-slate-500 text-xs lang-en">5-min walk from Yaesu Exit to Nihombashi Sta, then direct subway ride.</p>
+                    <p class="text-slate-500 text-xs lang-jp hidden">八重洲口から徒歩5分で日本橋駅へ移動し、直通地下鉄でアクセス。</p>
+                </div>
+
+                <!-- Option C -->
+                <div class="bg-amber-50/70 border border-amber-200 p-3 rounded-xl">
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="font-bold text-amber-900 lang-en">Option C: Direct Taxi</span>
+                        <span class="font-bold text-amber-900 lang-jp hidden">パターンC：タクシー直行</span>
+                        <span class="text-xs font-bold px-2 py-0.5 rounded bg-amber-200 text-amber-800">09:50 → 10:10</span>
+                    </div>
+                    <p class="text-slate-700 font-medium mb-1 lang-en">Taxi from Yaesu Stand direct to Senso-ji Kaminarimon (~20 mins)</p>
+                    <p class="text-slate-700 font-medium mb-1 lang-jp hidden">八重洲口タクシー乗り場 → 雷門前直行（約20分）</p>
+                    <p class="text-slate-500 text-xs lang-en">Ideal for small chaperone groups or carrying gear (~¥2,500/taxi).</p>
+                    <p class="text-slate-500 text-xs lang-jp hidden">グループや荷物がある場合に便利な直行便（1台約2,500円）。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Master Timeline Section -->
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-4 md:p-6 mb-8">
+            <h2 class="text-lg font-bold text-slate-900 mb-6 flex items-center space-x-2">
+                <i class="fa-regular fa-clock text-rose-600"></i>
+                <span class="lang-en">Detailed Daily Timeline</span>
+                <span class="lang-jp hidden">当日タイムスケジュール</span>
+            </h2>
+
+            <!-- Timeline List -->
+            <div class="relative timeline-line space-y-6">
+
+                <!-- 1. Outbound Travel -->
+                <div class="relative flex items-start space-x-4 z-10">
+                    <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-sm shadow-sm flex-shrink-0">
+                        <i class="fa-solid fa-train-subway"></i>
+                    </div>
+                    <div class="flex-grow bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-1">
+                            <span class="font-bold text-slate-900 text-sm md:text-base lang-en">Hitachi Station → Tokyo Station</span>
+                            <span class="font-bold text-slate-900 text-sm md:text-base lang-jp hidden">日立駅 → 東京駅（移動）</span>
+                            <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-blue-100 text-blue-700 w-max">06:50 - 09:31</span>
+                        </div>
+                        <p class="text-xs md:text-sm text-slate-600 leading-relaxed lang-en">
+                            Travel via JR Express train / Highway Bus arriving early at Tokyo Station (09:31 AM).
+                        </p>
+                        <p class="text-xs md:text-sm text-slate-600 leading-relaxed lang-jp hidden">
+                            JR特急または高速バスで東京駅へ移動（09:31到着）。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 2. Transfer to Asakusa -->
+                <div class="relative flex items-start space-x-4 z-10">
+                    <div class="w-10 h-10 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center font-bold text-sm shadow-sm flex-shrink-0">
+                        <i class="fa-solid fa-camera"></i>
+                    </div>
+                    <div class="flex-grow bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-1">
+                            <span class="font-bold text-slate-900 text-sm md:text-base lang-en">Tokyo Station Photo & Transfer to Asakusa</span>
+                            <span class="font-bold text-slate-900 text-sm md:text-base lang-jp hidden">東京駅写真撮影 & 浅草へ移動</span>
+                            <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-slate-200 text-slate-700 w-max">09:31 - 10:15</span>
+                        </div>
+                        <p class="text-xs md:text-sm text-slate-600 leading-relaxed lang-en">
+                            Quick photo outside Marunouchi Station building. Board subway/train to arrive in Asakusa around 10:15 AM.
+                        </p>
+                        <p class="text-xs md:text-sm text-slate-600 leading-relaxed lang-jp hidden">
+                            丸の内駅舎前で写真撮影後、地下鉄で浅草へ移動（10:15頃着）。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 3. Focused 2-Hour Asakusa Block -->
+                <div class="relative flex items-start space-x-4 z-10">
+                    <div class="w-10 h-10 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center font-bold text-sm shadow-sm flex-shrink-0">
+                        <i class="fa-solid fa-person-pulling-rickshaw"></i>
+                    </div>
+                    <div class="flex-grow bg-rose-50/60 p-4 rounded-xl border border-rose-200">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-1">
+                            <span class="font-bold text-rose-950 text-sm md:text-base lang-en">2-Hour Asakusa Block: Senso-ji, Rickshaws & Snacks</span>
+                            <span class="font-bold text-rose-950 text-sm md:text-base lang-jp hidden">浅草散策（2時間）：浅草寺・12分人力車・軽食</span>
+                            <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-rose-200 text-rose-800 w-max">10:15 - 12:15</span>
+                        </div>
+                        <p class="text-xs md:text-sm text-slate-700 leading-relaxed mb-2 lang-en">
+                            Visit Kaminarimon Gate & Senso-ji Temple. Enjoy staggered 12-minute traditional Rickshaw rides in pairs. Grab flexible street food or convenience store snacks along Nakamise Street.
+                        </p>
+                        <p class="text-xs md:text-sm text-slate-700 leading-relaxed mb-2 lang-jp hidden">
+                            雷門・浅草寺を散策。ペアで順次12分間の伝統人力車体験。仲見世通りの食べ歩きやコンビニ等で自由に昼食。
+                        </p>
+                        <div class="bg-white p-2.5 rounded-lg border border-rose-200 text-xs text-rose-900 font-medium">
+                            <i class="fa-solid fa-clock mr-1 text-rose-500"></i>
+                            <span class="lang-en">Streamlined 2-Hour Window: Keeps the energy high before heading to Shibuya!</span>
+                            <span class="lang-jp hidden">効率的な2時間プラン：時間を有効活用して次の渋谷エリアへ移動します！</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Independent Travel to Shibuya -->
+                <div class="relative flex items-start space-x-4 z-10">
+                    <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold text-sm shadow-sm flex-shrink-0">
+                        <i class="fa-solid fa-route"></i>
+                    </div>
+                    <div class="flex-grow bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-1">
+                            <span class="font-bold text-slate-900 text-sm md:text-base lang-en">Independent Transit to Shibuya (Ginza Line)</span>
+                            <span class="font-bold text-slate-900 text-sm md:text-base lang-jp hidden">銀座線で渋谷へ自主移動</span>
+                            <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 w-max">12:15 - 12:50</span>
+                        </div>
+                        <p class="text-xs md:text-sm text-slate-600 leading-relaxed lang-en">
+                            Students travel in buddy groups from Asakusa Station to Shibuya Station via Tokyo Metro Ginza Line (~35 min direct, no transfers).
+                        </p>
+                        <p class="text-xs md:text-sm text-slate-600 leading-relaxed lang-jp hidden">
+                            グループごとに浅草駅から東京メトロ銀座線で渋谷駅へ直接移動（乗り換えなし・約35分）。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 5. Shibuya Exploration & Regroup -->
+                <div class="relative flex items-start space-x-4 z-10">
+                    <div class="w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center font-bold text-sm shadow-sm flex-shrink-0">
+                        <i class="fa-solid fa-street-view"></i>
+                    </div>
+                    <div class="flex-grow bg-purple-50/60 p-4 rounded-xl border border-purple-200">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-1">
+                            <span class="font-bold text-purple-950 text-sm md:text-base lang-en">Shibuya Free Exploration & Mandatory 15:00 Regroup</span>
+                            <span class="font-bold text-purple-950 text-sm md:text-base lang-jp hidden">渋谷自由散策 & 15:00集合</span>
+                            <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-purple-200 text-purple-800 w-max">12:50 - 16:50</span>
+                        </div>
+                        <p class="text-xs md:text-sm text-slate-700 leading-relaxed mb-3 lang-en">
+                            Experience Scramble Crossing, Hachiko statue, and Shibuya shopping. Enjoy over 2 hours of free exploration before and after check-in.
+                        </p>
+                        <p class="text-xs md:text-sm text-slate-700 leading-relaxed mb-3 lang-jp hidden">
+                            スクランブル交差点、ハチ公像、ショッピング等を満喫。15:00集合の前後にたっぷり自由時間があります。
+                        </p>
+                        
+                        <!-- Checkpoint highlight -->
+                        <div class="bg-white p-3 rounded-xl border border-purple-300 shadow-xs flex items-center space-x-3">
+                            <i class="fa-solid fa-bell text-rose-500 text-xl animate-bounce"></i>
+                            <div>
+                                <p class="text-xs font-bold text-purple-900 lang-en">MANDATORY CHECK-IN: 15:00 (3:00 PM)</p>
+                                <p class="text-xs font-bold text-purple-900 lang-jp hidden">必須チェックイン集合：15:00</p>
+                                <p class="text-xs text-slate-600 lang-en">Location: Hachiko Plaza Statue for group head-count!</p>
+                                <p class="text-xs text-slate-600 lang-jp hidden">場所：ハチ公前広場にて点呼確認！</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Return Journey to Tokyo Station -->
+                <div class="relative flex items-start space-x-4 z-10">
+                    <div class="w-10 h-10 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center font-bold text-sm shadow-sm flex-shrink-0">
+                        <i class="fa-solid fa-train"></i>
+                    </div>
+                    <div class="flex-grow bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-1">
+                            <span class="font-bold text-slate-900 text-sm md:text-base lang-en">Shibuya → Tokyo Station (Yamanote Line)</span>
+                            <span class="font-bold text-slate-900 text-sm md:text-base lang-jp hidden">渋谷駅 → 東京駅（山手線）</span>
+                            <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 w-max">17:00 - 17:30</span>
+                        </div>
+                        <p class="text-xs md:text-sm text-slate-600 leading-relaxed lang-en">
+                            Board JR Yamanote Line around 17:02. Arrive at Tokyo Station ~17:28. Leaves a comfortable 25-minute buffer to reach Express Platforms.
+                        </p>
+                        <p class="text-xs md:text-sm text-slate-600 leading-relaxed lang-jp hidden">
+                            17:02頃の山手線に乗車。17:28頃東京駅到着。特急ホームへ移動するため余裕を持った25分前の到着。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 7. Express Train Back to Ibaraki -->
+                <div class="relative flex items-start space-x-4 z-10">
+                    <div class="w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold text-sm shadow-sm flex-shrink-0">
+                        <i class="fa-solid fa-house"></i>
+                    </div>
+                    <div class="flex-grow bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-1">
+                            <span class="font-bold text-slate-900 text-sm md:text-base lang-en">Limited Express Hitachi No. 23 (Homebound)</span>
+                            <span class="font-bold text-slate-900 text-sm md:text-base lang-jp hidden">特急ひたち23号（帰路）</span>
+                            <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-800 w-max">17:53 Departs</span>
+                        </div>
+                        <p class="text-xs md:text-sm text-slate-600 leading-relaxed lang-en">
+                            Departs Tokyo Station at 17:53. Arrives Hitachi Station at 19:34 / Izumi at 20:04. Host families pick up students upon arrival.
+                        </p>
+                        <p class="text-xs md:text-sm text-slate-600 leading-relaxed lang-jp hidden">
+                            東京駅17:53発。日立駅19:34着 / 泉駅20:04着。到着後ホストファミリーと合流。
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Safety Guidelines & Tips for Students -->
+        <div class="bg-indigo-900 text-white p-5 rounded-2xl shadow-sm mb-6">
+            <h3 class="font-bold text-base md:text-lg mb-3 flex items-center space-x-2">
+                <i class="fa-solid fa-shield-halved text-amber-400"></i>
+                <span class="lang-en">Important Guidelines for Students</span>
+                <span class="lang-jp hidden">生徒の皆さんへ重要なお知らせ</span>
+            </h3>
+            <ul class="text-xs md:text-sm space-y-2 text-indigo-100">
+                <li class="flex items-start space-x-2">
+                    <i class="fa-solid fa-check text-amber-400 mt-1"></i>
+                    <span class="lang-en"><strong>Buddy System:</strong> Always travel in groups of at least 2–3 people. Never walk alone.</span>
+                    <span class="lang-jp hidden"><strong>バディ制：</strong> 必ず2〜3人のグループで行動してください。1人行動は禁止です。</span>
+                </li>
+                <li class="flex items-start space-x-2">
+                    <i class="fa-solid fa-check text-amber-400 mt-1"></i>
+                    <span class="lang-en"><strong>Direct Subway Line:</strong> Asakusa to Shibuya is a direct shot on the Ginza Line. Do not transfer!</span>
+                    <span class="lang-jp hidden"><strong>直通路線：</strong> 浅草から渋谷へは銀座線で直通です。乗り換えは不要です！</span>
+                </li>
+                <li class="flex items-start space-x-2">
+                    <i class="fa-solid fa-check text-amber-400 mt-1"></i>
+                    <span class="lang-en"><strong>Trash Etiquette:</strong> Keep snack wrappers in your bag until you find a bin at a vending machine or store.</span>
+                    <span class="lang-jp hidden"><strong>ゴミのマナー：</strong> ゴミ箱が見つかるまで、ゴミはビニール袋に入れて持ち歩いてください。</span>
+                </li>
+            </ul>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 text-center text-xs py-4 border-t border-slate-800">
+        <p>Australia-Japan Exchange Program 2026 • Tour Staff Support</p>
+    </footer>
+
+    <!-- Interactive Toggle Script -->
+    <script>
+        let currentLang = 'en';
+
+        function toggleLanguage() {
+            const langEnElements = document.querySelectorAll('.lang-en');
+            const langJpElements = document.querySelectorAll('.lang-jp');
+            const btnText = document.getElementById('lang-btn-text');
+
+            if (currentLang === 'en') {
+                langEnElements.forEach(el => el.classList.add('hidden'));
+                langJpElements.forEach(el => el.classList.remove('hidden'));
+                btnText.textContent = 'English';
+                currentLang = 'jp';
+            } else {
+                langJpElements.forEach(el => el.classList.remove('hidden'));
+                langEnElements.forEach(el => el.classList.add('hidden'));
+                btnText.textContent = '日本語';
+                currentLang = 'en';
+            }
+        }
+    </script>
+</body>
+</html>
+
+```
